@@ -1,0 +1,53 @@
+{
+  "file": "MMHO_v1.6.0_crm_ids.owl",
+  "generated_at": "2026-09-08T23:56:24",
+  "tool": "owlready2 / OWL API",
+  "base": {
+    "axioms": 1869,
+    "logical_axioms": 472,
+    "class_count_local": 97,
+    "class_count_with_crm": 120,
+    "object_property_count_local": 41,
+    "object_property_count_with_crm": 61,
+    "data_property_count": 0,
+    "individual_count": 230,
+    "dl_expressivity": "SOIFI"
+  },
+  "class_axioms": {
+    "subClassOf": 100,
+    "equivalent": 0,
+    "disjoint": 0
+  },
+  "obj_prop_axioms": {
+    "subPropertyOf": 31,
+    "functional": 5,
+    "transitive": 3,
+    "symmetric": 1,
+    "irreflexive": 1,
+    "domain": 52,
+    "range": 41,
+    "inverse": 3
+  },
+  "individual_axioms": {
+    "class_assertion": 234
+  },
+  "schema": {
+    "attribute_richness": 0.0,
+    "inheritance_richness": 1.0309278350515463,
+    "relationship_richness": 0.2907801418439716,
+    "axiom_class_ratio": 19.2680412371134,
+    "class_relation_ratio": 2.3658536585365852
+  },
+  "graph": {
+    "root": 25,
+    "leaf": 76,
+    "absolute_depth": 244,
+    "max_depth": 5,
+    "avg_depth": 2.515463917525773,
+    "max_breadth": 7,
+    "absolute_breadth": 72,
+    "avg_breadth": 0.7422680412371134,
+    "leaf_fan_outness": 1.0,
+    "tangledness": 0.0
+  }
+}

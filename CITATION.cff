@@ -1,0 +1,58 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+type: software
+title: 'Mining and Metallurgy Heritage Ontology (MMHO)'
+version: 1.6.0
+date-released: 2026-09-08
+url: 'https://github.com/MengJ97/mmho'
+repository-code: 'https://github.com/MengJ97/mmho'
+license: CC-BY-4.0
+license-url: 'https://creativecommons.org/licenses/by/4.0/'
+keywords:
+  - ontology
+  - owl
+  - cidoc-crm
+  - knowledge-graph
+  - mining
+  - metallurgy
+  - archaeology
+  - cultural-heritage
+  - pre-qin-han-dynasties
+authors:
+  - given-names: 蒋蒙
+    family-names: Jiang
+    name-suffix: Meng
+    affiliation: '北京科技大学 · 科技史与文化遗产研究院'
+    email: D202210754@xs.ustb.edu.cn
+    orcid: 'https://orcid.org/0000-0000-0000-0000'
+contact:
+  - given-names: 蒋蒙
+    name-suffix: Meng
+    affiliation: '北京科技大学 · 科技史与文化遗产研究院'
+    email: D202210754@xs.ustb.edu.cn
+abstract: >-
+  Mining and Metallurgy Heritage Ontology (MMHO, 矿冶遗存本体) is a
+  domain ontology for knowledge organization of pre-Qin and Han
+  mining and metallurgy heritage sites. MMHO adopts OWL 2 DL encoding
+  and aligns with CIDOC CRM v7.1.3, the international reference
+  ontology for cultural heritage information. The ontology organizes
+  the domain knowledge through a three-layer structure (site-feature-
+  artifact), covering the complete technological chain from ore
+  extraction through smelting and casting to product disposal. v1.6.0
+  contains 97 classes, 41 object properties, 230 instances, and 1,869
+  axioms with DL expressivity SOIFI.
+references:
+  - type: article
+    title: 'OSDBA: Ontology of Shang Dynasty Bronze Artifacts'
+    authors:
+      - given-names: 蒋蒙
+        family-names: Jiang
+    year: 2026
+    publisher: 'International Journal of Digital Heritage'
+  - type: thesis
+    title: '《矿冶遗存本体构建与知识表达研究》'
+    authors:
+      - given-names: 蒋蒙
+        family-names: Jiang
+    year: 2026
+    institution: '北京科技大学 · 科技史与文化遗产研究院'
