@@ -6,7 +6,6 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:mmho="http://w3id.org/mmho#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://w3id.org/mmho">
         <dc:creator>蒋蒙</dc:creator>
@@ -16,7 +15,7 @@
         <dc:title xml:lang="en">Mining and Metallurgy Heritage Ontology</dc:title>
         <dc:title xml:lang="zh">矿冶遗存本体</dc:title>
         <rdfs:comment xml:lang="zh">本本体用于描述先秦两汉时期矿冶遗存的相关知识，采用与CIDOC CRM v7.1.3融合的方式构建。</rdfs:comment>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.6.0</owl:versionInfo>
+        <owl:versionInfo>1.6.0</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -44,6 +43,12 @@
     
 
 
+    <!-- http://purl.org/dc/elements/1.1/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/license"/>
+    
+
+
     <!-- http://purl.org/dc/elements/1.1/publisher -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/publisher"/>
@@ -53,6 +58,23 @@
     <!-- http://purl.org/dc/elements/1.1/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
     
 
 
@@ -611,6 +633,20 @@ Relation to mmho:hasPredecessor / mmho:hasSuccessor: those represent same-period
     
 
 
+    <!-- http://w3id.org/mmho#inferredAsThePlaceOfOrigin -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/mmho#inferredAsThePlaceOfOrigin">
+        <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P141i_was_assigned_by"/>
+        <rdfs:domain rdf:resource="http://w3id.org/mmho#ExcavatedArtifacts"/>
+        <rdfs:range rdf:resource="http://w3id.org/mmho#InferredPlaceOfOrigin"/>
+        <rdfs:comment xml:lang="en">Records the inferred place of production for an excavated artifact, based on scientific analysis such as lead isotope analysis or trace element analysis. The inference is modelled as mmho:InferredPlaceOfOrigin (subClass of crm:E13 Attribute Assignment). Sub-property of crm:P141i_was_assigned_by, following the appendix H Table 44 declaration.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">遗物的推断原产地，依据铅同位素分析或微量元素分析等科学方法推断。推断行为建模为 mmho:InferredPlaceOfOrigin（crm:E13 Attribute Assignment 的子类），挂父属性 crm:P141i_was_assigned_by，依据附录 H Table 44 声明。</rdfs:comment>
+        <rdfs:label xml:lang="en">inferred as the place of origin</rdfs:label>
+        <rdfs:label xml:lang="zh">推断原产地为</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://w3id.org/mmho#involvesTechnique -->
 
     <owl:ObjectProperty rdf:about="http://w3id.org/mmho#involvesTechnique">
@@ -687,24 +723,20 @@ Relation to mmho:hasPredecessor / mmho:hasSuccessor: those represent same-period
     
 
 
-    <!-- http://w3id.org/mmho#wasProducedAt -->
-
-    <owl:ObjectProperty rdf:about="http://w3id.org/mmho#wasProducedAt">
-        <rdfs:domain rdf:resource="http://w3id.org/mmho#ExcavatedArtifacts"/>
-        <rdfs:range rdf:resource="http://w3id.org/mmho#InferredPlaceOfOrigin"/>
-        <rdfs:comment xml:lang="en">Records the inferred place of production for an excavated artifact, based on scientific analysis such as lead isotope analysis or trace element analysis. The inference is modelled as mmho:InferredPlaceOfOrigin (subClass of crm:E13 Attribute Assignment). No parent CRM property: crm:P53_has_former_or_current_location&apos;s Range is crm:E53 Place, while this property&apos;s Range is mmho:InferredPlaceOfOrigin (E13 Attribute Assignment)—Range types do not match.</rdfs:comment>
-        <rdfs:comment xml:lang="zh">遗物的推断原产地，依据铅同位素分析或微量元素分析等科学方法推断。推断行为建模为 mmho:InferredPlaceOfOrigin（crm:E13 Attribute Assignment 的子类）。不挂父属性：crm:P53_has_former_or_current_location 的 Range 是 crm:E53 Place，本属性 Range 是 mmho:InferredPlaceOfOrigin（E13 Attribute Assignment），Range 类型不匹配。</rdfs:comment>
-        <rdfs:label xml:lang="en">was produced at</rdfs:label>
-        <rdfs:label xml:lang="zh">原产地是</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.cidoc-crm.org/cidoc-crm/P127_has_broader_term -->
 
     <owl:ObjectProperty rdf:about="http://www.cidoc-crm.org/cidoc-crm/P127_has_broader_term">
         <rdfs:label xml:lang="en">P127 has broader term</rdfs:label>
         <rdfs:label xml:lang="zh">P127 拥有上位词</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cidoc-crm.org/cidoc-crm/P141i_was_assigned_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.cidoc-crm.org/cidoc-crm/P141i_was_assigned_by">
+        <rdfs:label xml:lang="en">P141i was assigned by</rdfs:label>
+        <rdfs:label xml:lang="zh">P141i 被分配</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1088,9 +1120,9 @@ Relation to mmho:hasPredecessor / mmho:hasSuccessor: those represent same-period
     <!-- http://w3id.org/mmho#ConservationLevel -->
 
     <owl:Class rdf:about="http://w3id.org/mmho#ConservationLevel">
-        <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
-        <rdfs:comment xml:lang="en">Conservation level of cultural heritage sites under the Chinese cultural heritage protection system. Instances are conservation level tags such as national-level, provincial-level, municipal-level, and county-level.</rdfs:comment>
-        <rdfs:comment xml:lang="zh">文物保护级别，作为类型标签实例化。按中国文物保护制度分为全国重点、省级、市级、县级四级。</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://w3id.org/mmho#Type"/>
+        <rdfs:comment xml:lang="en">Conservation level of cultural heritage sites under the Chinese cultural heritage protection system. Instances are conservation level tags such as national-level, provincial-level, municipal-level, and county-level. This class is placed as a subclass of mmho:Type (rather than directly under crm:E55_Type) to maintain design consistency with other MMHO type subclasses (i.e., the mmho:Type centralization principle stated in Section 4.2.1).</rdfs:comment>
+        <rdfs:comment xml:lang="zh">文物保护级别，作为类型标签实例化。按中国文物保护制度分为全国重点、省级、市级、县级四级。本类被置于 mmho:Type 子类（而非直接挂 crm:E55_Type）下，以保持与其他 MMHO 类型子类（ActivityType、ConditionType、DimensionType、ExcavatedArtifactsType、FunctionalSpatialRelationType、PlaceOfOriginType、VisualFeatureType）的设计一致性，落实 4.2.1 节提出的 mmho:Type 集中化设计原则。</rdfs:comment>
         <rdfs:label xml:lang="en">Conservation Level</rdfs:label>
         <rdfs:label xml:lang="zh">文物保护级别</rdfs:label>
     </owl:Class>
@@ -1284,8 +1316,8 @@ Relation to mmho:hasPredecessor / mmho:hasSuccessor: those represent same-period
 
     <owl:Class rdf:about="http://w3id.org/mmho#FunctionalSpatialRelationType">
         <rdfs:subClassOf rdf:resource="http://w3id.org/mmho#Type"/>
-        <rdfs:comment xml:lang="en">Base class for the &quot;functional spatial relation type&quot; concept. Corresponds to CIDOC CRM crm:E55_Type through mmho:Type indirect inheritance. Concrete functional spatial relation type enumeration values are to be added later as instances (rdf:type) of this class, after being abstracted from archaeological report corpora. The ontology does not pre-instantiate concrete types.</rdfs:comment>
-        <rdfs:comment xml:lang="zh">类型概念——本体的&quot;功能空间关系类型&quot;基础类。通过 mmho:Type 间接继承 CIDOC CRM crm:E55_Type。具体的功能空间关系类型（如&quot;重力顺流型&quot;&quot;就近排放型&quot;等）由作者以后从考古报告语料中归纳后，作为本 Class 的实例（rdf:type）添加。本体不预设具体类型。</rdfs:comment>
+        <rdfs:comment xml:lang="en">Base class for the &quot;functional spatial relation type&quot; concept.</rdfs:comment>
+        <rdfs:comment xml:lang="zh">类型概念——本体的&quot;功能空间关系类型&quot;基础类</rdfs:comment>
         <rdfs:label xml:lang="en">functional spatial relation type</rdfs:label>
         <rdfs:label xml:lang="zh">功能空间关系类型</rdfs:label>
     </owl:Class>
@@ -1926,7 +1958,17 @@ Relation to mmho:hasPredecessor / mmho:hasSuccessor: those represent same-period
         <rdfs:subClassOf rdf:resource="http://w3id.org/mmho#Inscription"/>
         <rdfs:label xml:lang="en">Workman Mark</rdfs:label>
         <rdfs:label xml:lang="zh">物勒工名</rdfs:label>
-    </owl:Class><!-- http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment -->
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/mmho#hasFunctionalSpatialRelation -->
+
+    <owl:Class rdf:about="http://w3id.org/mmho#hasFunctionalSpatialRelation"/>
+    
+
+
+    <!-- http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment -->
 
     <owl:Class rdf:about="http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment">
         <rdfs:label xml:lang="en">E13 Attribute Assignment</rdfs:label>
@@ -2292,6 +2334,16 @@ Relation to mmho:hasPredecessor / mmho:hasSuccessor: those represent same-period
     
 
 
+    <!-- http://w3id.org/mmho#BeltHook -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/mmho#BeltHook">
+        <rdf:type rdf:resource="http://w3id.org/mmho#FinalProducts"/>
+        <rdfs:label xml:lang="en">Belt Hook</rdfs:label>
+        <rdfs:label xml:lang="zh">带钩</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://w3id.org/mmho#Ben -->
 
     <owl:NamedIndividual rdf:about="http://w3id.org/mmho#Ben">
@@ -2521,6 +2573,16 @@ Relation to mmho:hasPredecessor / mmho:hasSuccessor: those represent same-period
         <rdf:type rdf:resource="http://w3id.org/mmho#SmeltingTools"/>
         <rdfs:label xml:lang="en">Crucible</rdfs:label>
         <rdfs:label xml:lang="zh">坩埚</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/mmho#Dao -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/mmho#Dao">
+        <rdf:type rdf:resource="http://w3id.org/mmho#FinalProducts"/>
+        <rdfs:label xml:lang="en">Dao</rdfs:label>
+        <rdfs:label xml:lang="zh">刀</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2921,6 +2983,16 @@ Relation to mmho:hasPredecessor / mmho:hasSuccessor: those represent same-period
     
 
 
+    <!-- http://w3id.org/mmho#Guan -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/mmho#Guan">
+        <rdf:type rdf:resource="http://w3id.org/mmho#FinalProducts"/>
+        <rdfs:label xml:lang="en">Guan</rdfs:label>
+        <rdfs:label xml:lang="zh">罐</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://w3id.org/mmho#Guangdong -->
 
     <owl:NamedIndividual rdf:about="http://w3id.org/mmho#Guangdong">
@@ -3237,6 +3309,16 @@ Relation to mmho:hasPredecessor / mmho:hasSuccessor: those represent same-period
         <rdfs:comment xml:lang="zh">公元 266-420 年，分西晋（266-316）和东晋（317-420）两个时期。</rdfs:comment>
         <rdfs:label xml:lang="en">Jin Dynasty</rdfs:label>
         <rdfs:label xml:lang="zh">晋代</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/mmho#Jing -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/mmho#Jing">
+        <rdf:type rdf:resource="http://w3id.org/mmho#FinalProducts"/>
+        <rdfs:label xml:lang="en">Jing</rdfs:label>
+        <rdfs:label xml:lang="zh">镜</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4468,6 +4550,16 @@ Relation to mmho:hasPredecessor / mmho:hasSuccessor: those represent same-period
         <rdfs:comment xml:lang="zh">公元 1271-1368 年，由蒙古族建立的统一王朝。</rdfs:comment>
         <rdfs:label xml:lang="en">Yuan Dynasty</rdfs:label>
         <rdfs:label xml:lang="zh">元代</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/mmho#Yue -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/mmho#Yue">
+        <rdf:type rdf:resource="http://w3id.org/mmho#FinalProducts"/>
+        <rdfs:label xml:lang="en">Yue</rdfs:label>
+        <rdfs:label xml:lang="zh">钺</rdfs:label>
     </owl:NamedIndividual>
     
 
