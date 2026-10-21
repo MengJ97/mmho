@@ -9,6 +9,8 @@ dc:creator a owl:AnnotationProperty .
 
 dc:date a owl:AnnotationProperty .
 
+dc:license a owl:AnnotationProperty .
+
 dc:publisher a owl:AnnotationProperty .
 
 dc:title a owl:AnnotationProperty .
@@ -21,7 +23,7 @@ dc:title a owl:AnnotationProperty .
     dc:title "Mining and Metallurgy Heritage Ontology"@en,
         "矿冶遗存本体"@zh ;
     rdfs:comment "本本体用于描述先秦两汉时期矿冶遗存的相关知识，采用与CIDOC CRM v7.1.3融合的方式构建。"@zh ;
-    owl:versionInfo "1.6.0"^^xsd:string .
+    owl:versionInfo "1.6.0" .
 
 :Anhui a :Province,
         owl:NamedIndividual ;
@@ -103,6 +105,11 @@ dc:title a owl:AnnotationProperty .
         owl:NamedIndividual ;
     rdfs:label "Belly Diameter"@en,
         "腹径"@zh .
+
+:BeltHook a :FinalProducts,
+        owl:NamedIndividual ;
+    rdfs:label "Belt Hook"@en,
+        "带钩"@zh .
 
 :Ben a :FinalProducts,
         owl:NamedIndividual ;
@@ -237,6 +244,11 @@ dc:title a owl:AnnotationProperty .
         owl:NamedIndividual ;
     rdfs:label "Crucible"@en,
         "坩埚"@zh .
+
+:Dao a :FinalProducts,
+        owl:NamedIndividual ;
+    rdfs:label "Dao"@en,
+        "刀"@zh .
 
 :Depth a :DimensionType,
         owl:NamedIndividual ;
@@ -435,6 +447,11 @@ dc:title a owl:AnnotationProperty .
         "觚"@zh,
         "鼓"@zh .
 
+:Guan a :FinalProducts,
+        owl:NamedIndividual ;
+    rdfs:label "Guan"@en,
+        "罐"@zh .
+
 :Guangdong a :Province,
         owl:NamedIndividual ;
     rdfs:label "Guangdong"@en,
@@ -598,6 +615,11 @@ dc:title a owl:AnnotationProperty .
         owl:NamedIndividual ;
     rdfs:label "Jin"@en,
         "禁"@zh .
+
+:Jing a :FinalProducts,
+        owl:NamedIndividual ;
+    rdfs:label "Jing"@en,
+        "镜"@zh .
 
 :Jue a :FinalProducts,
         owl:NamedIndividual ;
@@ -1282,6 +1304,11 @@ dc:title a owl:AnnotationProperty .
         "元代"@zh ;
     rdfs:comment "公元 1271-1368 年，由蒙古族建立的统一王朝。"@zh .
 
+:Yue a :FinalProducts,
+        owl:NamedIndividual ;
+    rdfs:label "Yue"@en,
+        "钺"@zh .
+
 :Yunnan a :Province,
         owl:NamedIndividual ;
     rdfs:label "Yunnan"@en,
@@ -1678,6 +1705,15 @@ Relation to mmho:hasPredecessor / mmho:hasSuccessor: those represent same-period
     rdfs:range :GeographicCoordinates ;
     rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P168_place_is_defined_by> .
 
+:inferredAsThePlaceOfOrigin a owl:ObjectProperty ;
+    rdfs:label "inferred as the place of origin"@en,
+        "推断原产地为"@zh ;
+    rdfs:comment "Records the inferred place of production for an excavated artifact, based on scientific analysis such as lead isotope analysis or trace element analysis. The inference is modelled as mmho:InferredPlaceOfOrigin (subClass of crm:E13 Attribute Assignment). Sub-property of crm:P141i_was_assigned_by, following the appendix H Table 44 declaration."@en,
+        "遗物的推断原产地，依据铅同位素分析或微量元素分析等科学方法推断。推断行为建模为 mmho:InferredPlaceOfOrigin（crm:E13 Attribute Assignment 的子类），挂父属性 crm:P141i_was_assigned_by。"@zh ;
+    rdfs:domain :ExcavatedArtifacts ;
+    rdfs:range :InferredPlaceOfOrigin ;
+    rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P141i_was_assigned_by> .
+
 :involvesTechnique a owl:ObjectProperty ;
     rdfs:label "involves technique"@en,
         "涉及技术"@zh ;
@@ -1729,13 +1765,7 @@ Relation to mmho:hasPredecessor / mmho:hasSuccessor: those represent same-period
     rdfs:range :Location ;
     rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location> .
 
-:wasProducedAt a owl:ObjectProperty ;
-    rdfs:label "was produced at"@en,
-        "原产地是"@zh ;
-    rdfs:comment "Records the inferred place of production for an excavated artifact, based on scientific analysis such as lead isotope analysis or trace element analysis. The inference is modelled as mmho:InferredPlaceOfOrigin (subClass of crm:E13 Attribute Assignment). No parent CRM property: crm:P53_has_former_or_current_location's Range is crm:E53 Place, while this property's Range is mmho:InferredPlaceOfOrigin (E13 Attribute Assignment)—Range types do not match."@en,
-        "遗物的推断原产地，依据铅同位素分析或微量元素分析等科学方法推断。推断行为建模为 mmho:InferredPlaceOfOrigin（crm:E13 Attribute Assignment 的子类）。不挂父属性：crm:P53_has_former_or_current_location 的 Range 是 crm:E53 Place，本属性 Range 是 mmho:InferredPlaceOfOrigin（E13 Attribute Assignment），Range 类型不匹配。"@zh ;
-    rdfs:domain :ExcavatedArtifacts ;
-    rdfs:range :InferredPlaceOfOrigin .
+xsd:date a rdfs:Datatype .
 
 owl:Thing a owl:Class .
 
@@ -1791,8 +1821,8 @@ owl:Thing a owl:Class .
 :FunctionalSpatialRelationType a owl:Class ;
     rdfs:label "functional spatial relation type"@en,
         "功能空间关系类型"@zh ;
-    rdfs:comment "Base class for the \"functional spatial relation type\" concept. Corresponds to CIDOC CRM crm:E55_Type through mmho:Type indirect inheritance. Concrete functional spatial relation type enumeration values are to be added later as instances (rdf:type) of this class, after being abstracted from archaeological report corpora. The ontology does not pre-instantiate concrete types."@en,
-        "类型概念——本体的\"功能空间关系类型\"基础类。通过 mmho:Type 间接继承 CIDOC CRM crm:E55_Type。具体的功能空间关系类型（如\"重力顺流型\"\"就近排放型\"等）由作者以后从考古报告语料中归纳后，作为本 Class 的实例（rdf:type）添加。本体不预设具体类型。"@zh ;
+    rdfs:comment "Base class for the \"functional spatial relation type\" concept."@en,
+        "类型概念——本体的\"功能空间关系类型\"基础类"@zh ;
     rdfs:subClassOf :Type .
 
 :Gold_Panning_and_Smelting a owl:Class ;
@@ -1848,7 +1878,8 @@ owl:Thing a owl:Class .
         "测年得到的具体年代信息。"@zh ;
     rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E62_String> .
 
-:hasFunctionalSpatialRelation a owl:ObjectProperty ;
+:hasFunctionalSpatialRelation a owl:Class,
+        owl:ObjectProperty ;
     rdfs:label "has functional spatial relation"@en,
         "具有功能空间关系"@zh ;
     rdfs:comment "Annotates workflow-driven functional spatial topology between anthropogenic features within a mining and metallurgy site. Examples: between mining shaft and smelting furnace (gravity-based ore flow); between smelting area and slag heap (close-proximity slag discharge). Differs from generic proximity-based spatial relations."@en,
@@ -1909,6 +1940,10 @@ owl:Thing a owl:Class .
     rdfs:label "E53 Place"@en,
         "E53 地点"@zh .
 
+<http://www.cidoc-crm.org/cidoc-crm/E55_Type> a owl:Class ;
+    rdfs:label "E55 Type"@en,
+        "E55 类型"@zh .
+
 <http://www.cidoc-crm.org/cidoc-crm/E57_Material> a owl:Class ;
     rdfs:label "E57 Material"@en,
         "E57 材料"@zh .
@@ -1936,6 +1971,10 @@ owl:Thing a owl:Class .
 <http://www.cidoc-crm.org/cidoc-crm/P127_has_broader_term> a owl:ObjectProperty ;
     rdfs:label "P127 has broader term"@en,
         "P127 拥有上位词"@zh .
+
+<http://www.cidoc-crm.org/cidoc-crm/P141i_was_assigned_by> a owl:ObjectProperty ;
+    rdfs:label "P141i was assigned by"@en,
+        "P141i 被分配"@zh .
 
 <http://www.cidoc-crm.org/cidoc-crm/P14_carried_out_by> a owl:ObjectProperty ;
     rdfs:label "P14 carried out by"@en,
@@ -2099,10 +2138,6 @@ owl:Thing a owl:Class .
 <http://www.cidoc-crm.org/cidoc-crm/E54_Dimension> a owl:Class ;
     rdfs:label "E54 Dimension"@en,
         "E54 尺寸"@zh .
-
-<http://www.cidoc-crm.org/cidoc-crm/E55_Type> a owl:Class ;
-    rdfs:label "E55 Type"@en,
-        "E55 类型"@zh .
 
 <http://www.cidoc-crm.org/cidoc-crm/P45_consists_of> a owl:ObjectProperty ;
     rdfs:label "P45 consists of"@en,
@@ -2317,9 +2352,9 @@ owl:Thing a owl:Class .
 :ConservationLevel a owl:Class ;
     rdfs:label "Conservation Level"@en,
         "文物保护级别"@zh ;
-    rdfs:comment "Conservation level of cultural heritage sites under the Chinese cultural heritage protection system. Instances are conservation level tags such as national-level, provincial-level, municipal-level, and county-level."@en,
-        "文物保护级别，作为类型标签实例化。按中国文物保护制度分为全国重点、省级、市级、县级四级。"@zh ;
-    rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E55_Type> .
+    rdfs:comment "Conservation level of cultural heritage sites under the Chinese cultural heritage protection system. Instances are conservation level tags such as national-level, provincial-level, municipal-level, and county-level. This class is placed as a subclass of mmho:Type (rather than directly under crm:E55_Type) to maintain design consistency with other MMHO type subclasses (i.e., the mmho:Type centralization principle)."@en,
+        "文物保护级别，作为类型标签实例化。按中国文物保护制度分为全国重点、省级、市级、县级四级。本类被置于 mmho:Type 子类（而非直接挂 crm:E55_Type）下，以保持与其他 MMHO 类型子类（ActivityType、ConditionType、DimensionType、ExcavatedArtifactsType、FunctionalSpatialRelationType、PlaceOfOriginType、VisualFeatureType）的设计一致性。"@zh ;
+    rdfs:subClassOf :Type .
 
 :MythologicalCreaturePattern a owl:Class ;
     rdfs:label "Mythological Creature Pattern"@en,
@@ -2376,19 +2411,19 @@ owl:Thing a owl:Class .
         "以采矿、冶炼、铸造等矿冶活动为主的遗址。继承自CIDOC CRM E27 Site。"@zh ;
     rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E27_Site> .
 
-:Type a owl:Class ;
-    rdfs:label "Type"@en,
-        "类型"@zh ;
-    rdfs:comment "Base class for classification concepts, used for various classification systems, corresponding to CIDOC CRM E55_Type."@en,
-        "类型概念的基础类，用于各类分类体系，对应CIDOC CRM E55_Type。"@zh ;
-    rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E55_Type> .
-
 :ExcavatedArtifacts a owl:Class ;
     rdfs:label "Excavated Artifacts"@en,
         "出土遗物"@zh ;
     rdfs:comment "Excavated artifacts from archaeological excavation, including production tools, smelting products, and mining materials. These artifacts are direct physical evidence for mining and metallurgy research. Inherits from CIDOC CRM E18 Physical Thing."@en,
         "考古发掘出土的各类遗物，包括生产工具、冶炼产品和矿冶原料。"@zh ;
     rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E18_Physical_Thing> .
+
+:Type a owl:Class ;
+    rdfs:label "Type"@en,
+        "类型"@zh ;
+    rdfs:comment "Base class for classification concepts, used for various classification systems, corresponding to CIDOC CRM E55_Type."@en,
+        "类型概念的基础类，用于各类分类体系，对应CIDOC CRM E55_Type。"@zh ;
+    rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E55_Type> .
 
 :DimensionType a owl:Class ;
     rdfs:label "Dimension Type"@en,
