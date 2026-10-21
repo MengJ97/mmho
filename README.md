@@ -58,10 +58,8 @@ mmho/
     ├── MMHO_v1.4.7_crm_ids.owl                      # v1.4.7
     ├── MMHO_v1.4.8_crm_ids.owl                      # v1.4.8
     ├── MMHO_v1.4.9_crm_ids.owl                      # v1.4.9
-    ├── MMHO_v1.5.0_pre_v15fix_20260907.owl          # v1.5.0 升级前快照
-    ├── MMHO_v1.6.0_pre_v15fix2_20260907.owl         # v1.6.0 升级前快照
-    ├── MMHO_v1.6.0_crm_ids_pre_v16fix2_20260908.owl # v1.6.0 v16fix2 前快照
-    └── MMHO_v1.6.0_crm_ids_pre_dc_license_20260909.owl # v1.6.0 加 dc:license 前快照
+    └──  MMHO_v1.5.0_pre_v15fix_20260907.owl          # v1.5.0 升级前快照
+
 ```
 
 ## 编码格式
