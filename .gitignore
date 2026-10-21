@@ -1,0 +1,35 @@
+# OS junk files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Windows
+$RECYCLE.BIN/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Temporary work files (should not be in repo)
+*.bak
+*.tmp
+*~
+*.backup
+
+# Keep ontology .owl and .ttl files (they are intentional artifacts)
+# Do NOT ignore *.owl or *.ttl
+
+# Local tool scripts (used for converting/validating, not part of release)
+convert_to_ttl.py
+fix_*.py
+verify_*.py
+test_*.py
